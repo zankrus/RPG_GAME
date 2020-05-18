@@ -61,6 +61,7 @@ while monster_dead != 10 or base_hp > 0:
     print('Сила меча - {}'.format(base_attack))
     print('Общее количество жизней - {}'.format(base_hp))
     print('Монстров убито - {}'.format(monster_dead))
+    input('Нажмите любую клавишу чтобы начать новый ход')
 print('Поздравляем. Вы победили')
 
 
