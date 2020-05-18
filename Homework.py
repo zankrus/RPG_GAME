@@ -10,7 +10,7 @@ base_hp = 30
 base_attack = 10
 print('Ваши стартовые характеристики : Здоровье - {} , атака меча - {}'.format(base_hp, base_attack))
 monster_dead = 0
-while monster_dead != 10 or base_hp > 0:
+while monster_dead != 10 :
     monetka = random.randint(1,4)
     if monetka == 1 :
         '''Битва с монстром'''
@@ -65,11 +65,12 @@ while monster_dead != 10 or base_hp > 0:
         base_hp = base_hp + apple_hp
         print('Яблоко восстановило - {} здоровья'.format(apple_hp))
 
-
+    print('Вечереет. Итог дня:')
     print('Сила меча - {}'.format(base_attack))
     print('Общее количество жизней - {}'.format(base_hp))
     print('Монстров убито - {}'.format(monster_dead))
     input('Конец игрового дня Нажмите ENTER чтобы начать новый ход')
-print('Поздравляем. Вы победили')
 
+
+print('Поздравляем. Вы победили')
 
