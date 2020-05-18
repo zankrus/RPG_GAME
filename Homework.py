@@ -10,8 +10,8 @@ while monster_dead != 10 or base_hp > 0:
     monetka = random.randint(1,4)
     if monetka == 1 :
         '''Битва с монстром'''
-        monst_hp = random.randint(1,11)
-        monst_attack = random.randint(1,11)
+        monst_hp = random.randint(1,20)
+        monst_attack = random.randint(1,20)
         print('Вы встретили монстра со здоровьем {0} и атакой {1}'.format(monst_hp, monst_attack))
         print('Выберите действие : 1 - атаковать монстра , 2 - убежать')
         while True:
@@ -19,14 +19,18 @@ while monster_dead != 10 or base_hp > 0:
             print('Вы ввели {0}'.format(choice))
             if choice == '1':
                 while True:
+                    print('Началась драка')
                     monst_hp = monst_hp - base_attack
+                    print('У монстра осталось - {} жизней'.format(monst_hp))
                     if monst_hp <= 0 :
                         monster_dead += 1
                         break
                     base_hp = base_hp - monst_attack
+                    print('У вас осталось - {} жизней'.format(base_hp))
                     if base_hp <= 0 :
-                        print('Вы умерли')
-                        break
+                        print('Вы умерли.Игра окончена')
+                        quit()
+
                 break
             elif choice == '2':
                 print('Вы сбежали')
