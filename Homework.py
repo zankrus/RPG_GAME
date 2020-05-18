@@ -1,16 +1,20 @@
 
 
 import random
+
+
 print('Начало великой RPG-игры "Гейрой и Чудовища"')
+print('Ваша задача убить 10 монстров и не умереть')
 name = input('Введите имя рыцаря : ')
-base_hp = 10
+base_hp = 30
 base_attack = 10
+print('Ваши стартовые характеристики : Здоровье - {} , атака меча - {}'.format(base_hp, base_attack))
 monster_dead = 0
 while monster_dead != 10 or base_hp > 0:
     monetka = random.randint(1,4)
     if monetka == 1 :
         '''Битва с монстром'''
-        monst_hp = random.randint(1,20)
+        monst_hp = random.randint(5,30)
         monst_attack = random.randint(1,20)
         print('Вы встретили монстра со здоровьем {0} и атакой {1}'.format(monst_hp, monst_attack))
         print('Выберите действие : 1 - атаковать монстра , 2 - убежать')
@@ -18,11 +22,14 @@ while monster_dead != 10 or base_hp > 0:
             choice = input('Введите 1, чтобы драться или 2, чтобы убежать : ')
             print('Вы ввели {0}'.format(choice))
             if choice == '1':
+                print('Началась драка')
+                count = 1
                 while True:
-                    print('Началась драка')
+                    print('Начался {} раунд боя'.format(count))
                     monst_hp = monst_hp - base_attack
                     print('У монстра осталось - {} жизней'.format(monst_hp))
                     if monst_hp <= 0 :
+                        print('Монстр побежден')
                         monster_dead += 1
                         break
                     base_hp = base_hp - monst_attack
@@ -30,7 +37,7 @@ while monster_dead != 10 or base_hp > 0:
                     if base_hp <= 0 :
                         print('Вы умерли.Игра окончена')
                         quit()
-
+                    count += 1
                 break
             elif choice == '2':
                 print('Вы сбежали')
@@ -54,14 +61,15 @@ while monster_dead != 10 or base_hp > 0:
 
     else:
         print('По дороге вы нашли яблоко')
-        apple_hp = random.randint(1,20)
+        apple_hp = random.randint(1,10)
         base_hp = base_hp + apple_hp
         print('Яблоко восстановило - {} здоровья'.format(apple_hp))
+
 
     print('Сила меча - {}'.format(base_attack))
     print('Общее количество жизней - {}'.format(base_hp))
     print('Монстров убито - {}'.format(monster_dead))
-    input('Нажмите любую клавишу чтобы начать новый ход')
+    input('Конец игрового дня Нажмите ENTER чтобы начать новый ход')
 print('Поздравляем. Вы победили')
 
 
