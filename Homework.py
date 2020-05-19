@@ -1,21 +1,25 @@
-from colorama import Fore
-import random
+"""Код домашнего задания."""
 
-from termcolor import colored
+import random
+from colorama import Fore
+
 print(Fore.GREEN + 'Начало великой RPG-игры "Гейрой и Чудовища"', 'green')
 print('Ваша задача убить 10 монстров и не умереть', 'green')
 name = input('Введите имя рыцаря : ')
 base_hp = 30
 base_attack = 10
-print('Ваши стартовые характеристики : Здоровье - {} , атака меча - {}'.format(base_hp, base_attack))
+print('Ваши стартовые характеристики :'
+      ' Здоровье - {} , атака меча - {}'.format(base_hp, base_attack))
 monster_dead = 0
-while monster_dead != 10 :
-    monetka = random.randint(1,3)
-    if monetka == 1 :
+while monster_dead != 10:
+    monetka = random.randint(1, 3)
+    if monetka == 1:
         '''Битва с монстром'''
-        monst_hp = random.randint(5,30)
-        monst_attack = random.randint(1,20)
-        print(Fore.RED + 'Вы встретили монстра со здоровьем {0} и атакой {1}'.format(monst_hp, monst_attack))
+        monst_hp = random.randint(5, 30)
+        monst_attack = random.randint(1, 20)
+        print(Fore.RED + 'Вы встретили '
+                         'монстра со здоровьем {0} '
+                         'и атакой {1}'.format(monst_hp, monst_attack))
         print('Выберите действие : 1 - атаковать монстра , 2 - убежать')
         while True:
             choice = input('Введите 1, чтобы драться или 2, чтобы убежать : ')
@@ -27,13 +31,13 @@ while monster_dead != 10 :
                     print('Начался {} раунд боя'.format(count))
                     monst_hp = monst_hp - base_attack
                     print('У монстра осталось - {} жизней'.format(monst_hp))
-                    if monst_hp <= 0 :
+                    if monst_hp <= 0:
                         print('Монстр побежден', 'green')
                         monster_dead += 1
                         break
                     base_hp = base_hp - monst_attack
                     print('У вас осталось - {} жизней'.format(base_hp))
-                    if base_hp <= 0 :
+                    if base_hp <= 0:
                         print('Вы умерли.Игра окончена', 'red')
                         quit()
                     count += 1
@@ -45,10 +49,11 @@ while monster_dead != 10 :
                 print('Вы ввели неверное значение. Введите 1 или 2')
 
     elif monetka == 2:
-        sword_power = random.randint(1,20)
+        sword_power = random.randint(1, 20)
         print(Fore.BLUE + 'Вы обнаружили меч с силой - {}'.format(sword_power))
         while True:
-            choice_2 = input('Введите 1 , чтобы поднять меч или 2, чтобы пройти мимо : ')
+            choice_2 = input('Введите 1 ,чтобы поднять меч '
+                             'или 2, чтобы пройти мимо : ')
             if choice_2 == '1':
                 base_attack = sword_power
                 break
@@ -60,7 +65,7 @@ while monster_dead != 10 :
 
     else:
         print(Fore.CYAN + 'По дороге вы нашли яблоко', 'green')
-        apple_hp = random.randint(1,10)
+        apple_hp = random.randint(1, 10)
         base_hp = base_hp + apple_hp
         print('Яблоко восстановило - {} здоровья'.format(apple_hp))
 
@@ -71,5 +76,4 @@ while monster_dead != 10 :
     input('Конец игрового дня Нажмите ENTER чтобы начать новый ход')
 
 
-print('Поздравляем. Вы победили')
-
+print('Поздравляем. Вы победили. Рыцарь {} победил 10 монстров'.format(name))
