@@ -13,11 +13,11 @@ print('Ваши стартовые характеристики :'
 monster_dead = 0
 
 
-def eng_day(base_attack, base_hp, monster_dead):
+def eng_day(a: int = 10, b: int = 10, c: int = 10) -> None:
     """Функция конца дня."""
-    print('Сила меча - {}'.format(base_attack))
-    print('Общее количество жизней - {}'.format(base_hp))
-    print('Монстров убито - {}'.format(monster_dead))
+    print('Сила меча - {}'.format(a))
+    print('Общее количество жизней - {}'.format(b))
+    print('Монстров убито - {}'.format(c))
     input('Конец игрового дня Нажмите ENTER чтобы начать новый день ')
     print('')
 
