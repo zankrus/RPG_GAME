@@ -3,7 +3,7 @@
 import random
 from colorama import Fore
 
-print(Fore.GREEN + 'Начало великой RPG-игры "Гейрой и Чудовища"')
+print(Fore.GREEN + 'Начало великой RPG-игры "Герой и Чудовища"')
 print('Ваша задача убить 10 монстров и не умереть')
 name = input('Введите имя рыцаря : ')
 base_hp = 30
@@ -13,7 +13,7 @@ print('Ваши стартовые характеристики :'
 monster_dead = 0
 
 
-def eng_day(a: int = 10, b: int = 10, c: int = 10) -> None:
+def end_day(a: int = 10, b: int = 10, c: int = 10) -> None:
     """Функция конца дня."""
     print('Сила меча - {}'.format(a))
     print('Общее количество жизней - {}'.format(b))
@@ -24,8 +24,8 @@ def eng_day(a: int = 10, b: int = 10, c: int = 10) -> None:
 
 while monster_dead != 10:
 
-    monetka = random.randint(1, 3)
-    if monetka == 1:
+    random_event = random.randint(1, 3)
+    if random_event == 1:
         '''Битва с монстром'''
         monst_hp = random.randint(5, 30)
         monst_attack = random.randint(5, 30)
@@ -47,6 +47,7 @@ while monster_dead != 10:
                     if monst_hp <= 0:
                         print('У монстра осталось - 0 жизней')
                         print('Монстр побежден')
+                        base_hp = base_hp - monst_attack
                         monster_dead += 1
                         break
                     print('У монстра осталось - {} жизней'.format(monst_hp))
@@ -64,7 +65,7 @@ while monster_dead != 10:
             else:
                 print('Вы ввели неверное значение. Введите 1 или 2')
 
-    elif monetka == 2:
+    elif random_event == 2:
         sword_power = random.randint(1, 20)
         print('')
         print(Fore.BLUE + 'Вы обнаружили меч с силой - {}'.format(sword_power))
@@ -88,7 +89,7 @@ while monster_dead != 10:
         print('Яблоко восстановило - {} здоровья'.format(apple_hp))
 
     print(Fore.YELLOW + '')
-    eng_day(base_attack, base_hp, monster_dead)
+    end_day(base_attack, base_hp, monster_dead)
 
 print('Поздравляем. Вы победили. Рыцарь {} победил 10 монстров'.format(name))
 input('Нажмите ENTER для завершения')
